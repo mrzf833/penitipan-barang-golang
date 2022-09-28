@@ -1,0 +1,1238 @@
+{
+    "openapi":"3.0.2",
+    "info": {
+      "title":"Inventory",
+      "version":"1.0"
+    },
+    "servers": [
+      {"url":"https://localhost:3000"}
+    ],
+    "paths": {
+
+      "/api/category": {
+        "get": {
+          "tags": ["Category"],
+          "description": "List All Category",
+          "summary": "List All Category",
+          "responses": {
+            "200": {
+              "description": "Success get all category",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                          "message": {
+                              "type": "string"
+                          },
+                          "data": {
+                              "type": "array",
+                              "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "integer"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    }
+                                  }
+                              }
+                          }
+                      }
+                    }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": ["Category"],
+          "description": "Create Category",
+          "summary": "Create Category",
+          "requestBody": {
+              "content": {
+                  "application/json": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            }
+                          }
+                      }
+                  }
+              }
+          },
+          "responses": {
+            "200": {
+              "description": "Success create category",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "integer"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    }
+                                  }
+                              }
+                            }
+                        }
+                    }
+                }
+            }
+          }
+        }
+      },
+      "/api/category/{categoryId}": {
+        "get": {
+          "parameters": [
+            {
+                "name": "categoryId",
+                "in": "path",
+                "description": "Category Id"
+            }
+          ],
+          "tags": ["Category"],
+          "description": "Get Category",
+          "summary": "Get Category",
+          "responses": {
+            "200": {
+                "description": "Success get category",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "integer"
+                                      },
+                                      "name": {
+                                        "type": "string"
+                                      }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+          }
+        },
+        "put": {
+          "parameters": [
+            {
+                "name": "categoryId",
+                "in": "path",
+                "description": "Category Id"
+            }
+          ],
+          "tags": ["Category"],
+          "description": "Update Category",
+          "summary": "Update Category",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success update category",
+              "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "message": {
+                                "type": "string"
+                            },
+                            "data": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            }
+          }
+        },
+        "delete": {
+          "parameters": [
+            {
+                "name": "categoryId",
+                "in": "path",
+                "description": "Category Id"
+            }
+          ],
+          "tags": ["Category"],
+          "description": "Delete Category",
+          "summary": "Delete Category",
+          "responses": {
+            "200": {
+              "description": "Success delete category",
+              "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "message": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+            }
+          }
+        }
+      },
+
+
+      "/api/student": {
+        "get": {
+          "tags": ["Student"],
+          "description": "List All Student",
+          "summary": "List All Student",
+          "responses": {
+            "200": {
+              "description": "Success get all student",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        },
+                        "data": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer"
+                                  },
+                                  "fullname": {
+                                    "type": "string"
+                                  },
+                                  "email": {
+                                    "type": "string"
+                                  },
+                                  "phone_number": {
+                                    "type": "string"
+                                  },
+                                  "address": {
+                                    "type": "string"
+                                  }
+                                }
+                            }
+                        }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": ["Student"],
+          "description": "Create Student",
+          "summary": "Create Student",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                      "fullname": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "phone_number": {
+                        "type": "string"
+                      },
+                      "address": {
+                        "type": "string"
+                      }
+                    }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success create student",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      },
+                      "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "fullname": {
+                              "type": "string"
+                            },
+                            "email": {
+                              "type": "string"
+                            },
+                            "phone_number": {
+                              "type": "string"
+                            },
+                            "address": {
+                              "type": "string"
+                            }
+                          }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/student/{studentId}": {
+        "get": {
+          "parameters": [
+            {
+                "name": "studentId",
+                "in": "path",
+                "description": "Student Id"
+            }
+          ],
+          "tags": ["Student"],
+          "description": "Get Student",
+          "summary": "Get Student",
+          "responses": {
+            "200": {
+              "description": "Success get student",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      },
+                      "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "fullname": {
+                              "type": "string"
+                            },
+                            "email": {
+                              "type": "string"
+                            },
+                            "phone_number": {
+                              "type": "string"
+                            },
+                            "address": {
+                              "type": "string"
+                            }
+                          }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "parameters": [
+            {
+                "name": "studentId",
+                "in": "path",
+                "description": "Student Id"
+            }
+          ],
+          "tags": ["Student"],
+          "description": "Update Student",
+          "summary": "Update Student",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                      "fullname": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "phone_number": {
+                        "type": "string"
+                      },
+                      "address": {
+                        "type": "string"
+                      }
+                    }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success update student",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      },
+                      "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "fullname": {
+                              "type": "string"
+                            },
+                            "email": {
+                              "type": "string"
+                            },
+                            "phone_number": {
+                              "type": "string"
+                            },
+                            "address": {
+                              "type": "string"
+                            }
+                          }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "parameters": [
+            {
+                "name": "studentId",
+                "in": "path",
+                "description": "Student Id"
+            }
+          ],
+          "tags": ["Student"],
+          "description": "Delete Student",
+          "summary": "Delete Student",
+          "responses": {
+            "200": {
+              "description": "Success delete student",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+
+      "/api/user": {
+        "get": {
+          "tags": ["User Admin"],
+          "description": "List All user admin",
+          "summary": "List All user admin",
+          "responses": {
+            "200": {
+              "description": "Success get all admin",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                          "message": {
+                              "type": "string"
+                          },
+                          "data": {
+                              "type": "array",
+                              "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "integer"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "username": {
+                                      "type": "string"
+                                    }
+                                  }
+                              }
+                          }
+                      }
+                    }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": ["User Admin"],
+          "description": "Create Admin",
+          "summary": "Create Admin",
+          "requestBody": {
+              "content": {
+                  "application/json": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "username": {
+                              "type": "string"
+                            },
+                            "password": {
+                              "type": "string"
+                            }
+                          }
+                      }
+                  }
+              }
+          },
+          "responses": {
+            "200": {
+              "description": "Success create admin",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "integer"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "username": {
+                                      "type": "string"
+                                    }
+                                  }
+                              }
+                            }
+                        }
+                    }
+                }
+            }
+          }
+        }
+      },
+      "/api/user/{userId}": {
+        "get": {
+          "parameters": [
+            {
+                "name": "userId",
+                "in": "path",
+                "description": "User Id"
+            }
+          ],
+          "tags": ["User Admin"],
+          "description": "Get user admin",
+          "summary": "Get user admin",
+          "responses": {
+            "200": {
+              "description": "Success get admin",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                          "message": {
+                              "type": "string"
+                          },
+                          "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "username": {
+                                  "type": "string"
+                                }
+                              }
+                          }
+                      }
+                    }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "parameters": [
+            {
+                "name": "userId",
+                "in": "path",
+                "description": "User Id"
+            }
+          ],
+          "tags": ["User Admin"],
+          "description": "Update Admin",
+          "summary": "Update Admin",
+          "requestBody": {
+              "content": {
+                  "application/json": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "username": {
+                              "type": "string"
+                            }
+                          }
+                      }
+                  }
+              }
+          },
+          "responses": {
+            "200": {
+              "description": "Success update admin",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "integer"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "username": {
+                                      "type": "string"
+                                    }
+                                  }
+                              }
+                            }
+                        }
+                    }
+                }
+            }
+          }
+        },
+        "delete": {
+          "parameters": [
+            {
+                "name": "userId",
+                "in": "path",
+                "description": "User Id"
+            }
+          ],
+          "tags": ["User Admin"],
+          "description": "Delete user admin",
+          "summary": "Delete user admin",
+          "responses": {
+            "200": {
+              "description": "Success delete admin",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                          "message": {
+                              "type": "string"
+                          }
+                      }
+                    }
+                }
+              }
+            }
+          }
+        }
+      },
+
+      "/api/user/{userId}/password": {
+        "put": {
+          "parameters": [
+            {
+                "name": "userId",
+                "in": "path",
+                "description": "User Id"
+            }
+          ],
+          "tags": ["User Admin"],
+          "description": "Update Password Admin",
+          "summary": "Update Password Admin",
+          "requestBody": {
+              "content": {
+                  "application/json": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                            "password": {
+                              "type": "string"
+                            }
+                          }
+                      }
+                  }
+              }
+          },
+          "responses": {
+            "200": {
+              "description": "Success update password admin",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+          }
+        }
+      },
+
+      "/api/inventory": {
+        "get": {
+          "tags": ["Inventory"],
+          "description": "List All inventory",
+          "summary": "List All inventory",
+          "responses": {
+            "200": {
+              "description": "Success get all inventory",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                          "message": {
+                              "type": "string"
+                          },
+                          "data": {
+                              "type": "array",
+                              "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "integer"
+                                    },
+                                    "category_id": {
+                                      "type": "integer"
+                                    },
+                                    "category_name": {
+                                      "type": "string"
+                                    },
+                                    "deposit_admin": {
+                                      "type": "integer"
+                                    },
+                                    "deposit_student_id": {
+                                      "type": "integer"
+                                    },
+                                    "deposit_name": {
+                                      "type": "string"
+                                    },
+                                    "deposit_time": {
+                                      "type": "string"
+                                    },
+                                    "item_name": {
+                                      "type": "string"
+                                    },
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "status": {
+                                      "type": "string"
+                                    },
+                                    "take_admin": {
+                                      "type": "integer"
+                                    },
+                                    "take_student_id": {
+                                      "type": "integer"
+                                    },
+                                    "take_name": {
+                                      "type": "string"
+                                    },
+                                    "take_time": {
+                                      "type": "string"
+                                    }
+                                  }
+                              }
+                          }
+                      }
+                    }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": ["Inventory"],
+          "description": "Create inventory",
+          "summary": "Create inventory",
+          "requestBody": {
+            "description": "untuk field deposit_name dibutuhkan jika deposit_student_id tidak diisi",
+            "content": {
+              "application/json": {
+                  "schema": {
+                      "type": "object",
+                      "properties": {
+                        "category_id": {
+                          "type": "integer"
+                        }, 
+                        "deposit_student_id": {
+                          "type": "integer"
+                        },
+                        "deposit_name": {
+                          "type": "string"
+                        },
+                        "item_name": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      }
+                  }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success create inventory",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                          "message": {
+                              "type": "string"
+                          },
+                          "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "category_id": {
+                                  "type": "integer"
+                                },
+                                "category_name": {
+                                  "type": "string"
+                                },
+                                "deposit_admin": {
+                                  "type": "integer"
+                                },
+                                "deposit_student_id": {
+                                  "type": "integer"
+                                },
+                                "deposit_name": {
+                                  "type": "string"
+                                },
+                                "deposit_time": {
+                                  "type": "string"
+                                },
+                                "item_name": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "status": {
+                                  "type": "string"
+                                },
+                                "take_admin": {
+                                  "type": "integer"
+                                },
+                                "take_student_id": {
+                                  "type": "integer"
+                                },
+                                "take_name": {
+                                  "type": "string"
+                                },
+                                "take_time": {
+                                  "type": "string"
+                                }
+                              }
+                          }
+                      }
+                    }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/inventory/{inventoryId}": {
+        "get": {
+          "parameters": [
+            {
+                "name": "inventoryId",
+                "in": "path",
+                "description": "Inventory Id"
+            }
+          ],
+          "tags": ["Inventory"],
+          "description": "Get inventory",
+          "summary": "Get inventory",
+          "responses": {
+            "200": {
+              "description": "Success get inventory",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                          "message": {
+                              "type": "string"
+                          },
+                          "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "category_id": {
+                                  "type": "integer"
+                                },
+                                "category_name": {
+                                  "type": "string"
+                                },
+                                "deposit_admin": {
+                                  "type": "integer"
+                                },
+                                "deposit_student_id": {
+                                  "type": "integer"
+                                },
+                                "deposit_name": {
+                                  "type": "string"
+                                },
+                                "deposit_time": {
+                                  "type": "string"
+                                },
+                                "item_name": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "status": {
+                                  "type": "string"
+                                },
+                                "take_admin": {
+                                  "type": "integer"
+                                },
+                                "take_student_id": {
+                                  "type": "integer"
+                                },
+                                "take_name": {
+                                  "type": "string"
+                                },
+                                "take_time": {
+                                  "type": "string"
+                                }
+                              }
+                          }
+                      }
+                    }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": ["Inventory"],
+          "description": "Update inventory",
+          "summary": "Update inventory",
+          "requestBody": {
+            "description": "untuk field deposit_name dibutuhkan jika deposit_student_id tidak diisi; untuk field take_name dibutuhkan jika take_student_id tidak diisi",
+            "content": {
+              "application/json": {
+                  "schema": {
+                      "type": "object",
+                      "properties": {
+                        "category_id": {
+                          "type": "integer"
+                        }, 
+                        "deposit_student_id": {
+                          "type": "integer"
+                        },
+                        "deposit_time": {
+                          "type": "string"
+                        },
+                        "deposit_name": {
+                          "type": "string"
+                        },
+                        "item_name": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "take_mahasiswa_id": {
+                          "type": "integer"
+                        },
+                        "take_name": {
+                          "type": "string"
+                        },
+                        "take_time": {
+                          "type": "string"
+                        }
+                      }
+                  }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success update inventory",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                          "message": {
+                              "type": "string"
+                          },
+                          "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "category_id": {
+                                  "type": "integer"
+                                },
+                                "category_name": {
+                                  "type": "string"
+                                },
+                                "deposit_admin": {
+                                  "type": "integer"
+                                },
+                                "deposit_student_id": {
+                                  "type": "integer"
+                                },
+                                "deposit_name": {
+                                  "type": "string"
+                                },
+                                "deposit_time": {
+                                  "type": "string"
+                                },
+                                "item_name": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "status": {
+                                  "type": "string"
+                                },
+                                "take_admin": {
+                                  "type": "integer"
+                                },
+                                "take_student_id": {
+                                  "type": "integer"
+                                },
+                                "take_name": {
+                                  "type": "string"
+                                },
+                                "take_time": {
+                                  "type": "string"
+                                }
+                              }
+                          }
+                      }
+                    }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": ["Inventory"],
+          "description": "Delete inventory",
+          "summary": "Delete inventory",
+          "responses": {
+            "200": {
+              "description": "Success delete inventory",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                          "message": {
+                              "type": "string"
+                          }
+                      }
+                    }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/inventory/{inventoryId}/take": {
+        "put": {
+          "tags": ["Inventory"],
+          "description": "take item inventory",
+          "summary": "take item inventory",
+          "requestBody": {
+            "description": "untuk field take_name dibutuhkan jika take_student_id tidak diisi",
+            "content": {
+              "application/json": {
+                  "schema": {
+                      "type": "object",
+                      "properties": {
+                        "take_mahasiswa_id": {
+                          "type": "integer"
+                        },
+                        "take_name": {
+                          "type": "string"
+                        }
+                      }
+                  }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success take item inventory",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                          "message": {
+                              "type": "string"
+                          },
+                          "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "category_id": {
+                                  "type": "integer"
+                                },
+                                "category_name": {
+                                  "type": "string"
+                                },
+                                "deposit_admin": {
+                                  "type": "integer"
+                                },
+                                "deposit_student_id": {
+                                  "type": "integer"
+                                },
+                                "deposit_name": {
+                                  "type": "string"
+                                },
+                                "deposit_time": {
+                                  "type": "string"
+                                },
+                                "item_name": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "status": {
+                                  "type": "string"
+                                },
+                                "take_admin": {
+                                  "type": "integer"
+                                },
+                                "take_student_id": {
+                                  "type": "integer"
+                                },
+                                "take_name": {
+                                  "type": "string"
+                                },
+                                "take_time": {
+                                  "type": "string"
+                                }
+                              }
+                          }
+                      }
+                    }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
